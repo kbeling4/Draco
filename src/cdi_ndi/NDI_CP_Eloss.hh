@@ -82,7 +82,7 @@ public:
 
   //! 3D indexing of 1D stopping power data
   inline double get_stopping_data(int i_e, int i_d, int i_t) const {
-    return stopping_data_1d[i_t + n_temperature * (i_d + n_density * i_e)];
+    return stopping_data_1d[i_e + n_energy * (i_d + n_density * i_t)];
   }
 
 private:

@@ -30,7 +30,8 @@ void ndi_dedx_test(rtt_dsxx::UnitTest &ut) {
   int proton_zaid = 1001;
   double proton_mass = 1.6726219e-24;
   rtt_cdi::CParticle target(proton_zaid, proton_mass);
-  int alpha_zaid = 2004;
+
+  int alpha_zaid = 1002;
   double alpha_mass = 6.64465723e-24;
   rtt_cdi::CParticle projectile(alpha_zaid, alpha_mass);
 
@@ -71,6 +72,14 @@ void ndi_dedx_test(rtt_dsxx::UnitTest &ut) {
   for(auto t : temperatures) {
     std::cout << t << " keV" << std::endl;
   }
+
+  std::cout << "Stopping Powers: \n";
+  for(int g = 0; g < energies.size(); ++g) {
+    double lnS = eloss.get_stopping_data(g,0,0);
+    std::cout << lnS << std::endl;
+  }
+  std::cout << std::endl;
+
 
   // // Get eloss value for almost first (1,1,1) grid point
   // {
